@@ -744,7 +744,6 @@ class UNetModel(nn.Module):
         self.input_blocks.apply(convert_module_to_f16)
         self.middle_block.apply(convert_module_to_f16)
         self.output_blocks.apply(convert_module_to_f16)
-        self.out.apply(convert_module_to_f16)
 
     def convert_to_fp32(self):
         """
@@ -753,7 +752,6 @@ class UNetModel(nn.Module):
         self.input_blocks.apply(convert_module_to_f32)
         self.middle_block.apply(convert_module_to_f32)
         self.output_blocks.apply(convert_module_to_f32)
-        self.out.apply(convert_module_to_f32)
 
     def forward(self, x, timesteps, y=None):
         """
